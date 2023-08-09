@@ -1,14 +1,28 @@
-import React from "react";
-import { GlobalProviderProps, MainBoard } from "./interfaces";
+import React, { useEffect, useState } from "react";
+import { GlobalProviderProps, GlobalState } from "./interfaces";
+
+const initialState: GlobalState = {
+	connections: [],
+};
 
 const GlobalContext = React.createContext<{
-	boards: MainBoard[];
+	connections: GlobalState;
+	start: () => void;
 }>({
-	boards: [],
+	connections: initialState,
+	start: () => {},
 });
 
-const GlobalProvider: React.FC<GlobalProviderProps> = () => {
-	return <div>GlobalProvider</div>;
+const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
+	const [connections, setConnections] = useState<GlobalState>(initialState);
+
+	const start = () => {};
+
+	return (
+		<GlobalContext.Provider value={{ connections, start }}>
+			{children}
+		</GlobalContext.Provider>
+	);
 };
 
 export default GlobalProvider;

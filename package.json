@@ -11,9 +11,11 @@
     "electron:dev": "electron ."
   },
   "dependencies": {
+    "@types/serialport": "^8.0.2",
     "electron": "^25.3.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "serialport": "^11.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
